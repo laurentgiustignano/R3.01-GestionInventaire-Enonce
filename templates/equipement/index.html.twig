@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipement index{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <H1>Mes équipements</H1>
+    </div>
+
+    <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Categorie</th>
+            <th>Stock</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for equipement in equipements %}
+            <tr>
+                <td>{{ equipement.titre }}</td>
+                <td>{{ equipement.description }}</td>
+                <td>{{ equipement.categorie }}</td>
+                <td>{{ equipement.stock }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td class="text-warning text-center" colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
